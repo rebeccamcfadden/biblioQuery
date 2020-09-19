@@ -2,7 +2,7 @@ importScripts('https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/7.8.0/firebase-messaging.js');
 
 const firebaseSWConfig = {
-    apiKey: "AIzaSyDFD3ASPa4CD4EAotVoczK_pPfzEX_jIgk",
+    apiKey: "insert API Key here",
     projectId: "biblioquery",
     messagingSenderId: "616201462184",
     appId: "1:616201462184:web:343a2f2b6810e461a37d9d"
