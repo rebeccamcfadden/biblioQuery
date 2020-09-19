@@ -1,0 +1,59 @@
+Date: April 21 2020
+Attended: Dante Barbieri, Rebecca McFadden, Kevin Pradez, Andrew Wallace
+Duration: 5 minutes
+
+Status and Updates:
+
+Dante: Worked on miscellaneous fixes and cleaned up code, worked on being able
+	to sort tables, integrate nickname field with database
+	Plan on refactoring code and adding documentation to code
+
+Rebecca: Worked on creating the chat and for push notifications to work
+	Plan on working on chat notifications to work, help with web scraping
+
+Kevin: Plan on helping with coding with miscellaneous tasks on the project log
+	
+
+Andrew: Plan on working on speech-to-text and enable the user to turn it on and off
+	Plan to work on Firebase Cloud Functions to get web scraping to work
+--------------------------------------------------------------------------------------
+
+Date: April 23 2020
+Attended: Dante Barbieri, Rebecca McFadden, Kevin Pradez, Andrew Wallace
+Duration: 5 minutes
+
+Status and Updates:
+
+Dante: Fixing data tables, miscellaneous bug fixing
+	Plan on implementing timestamps reviews
+
+Rebecca: Cloud function for webscraping to get more data, 
+	Plan on making chat notifications persistent
+	
+
+Kevin: Create a loader icon when application is loading for various things, update about us page to 
+	include direct messaging feature
+	
+
+Andrew: Making speech to text more visually appealing
+	Plan on finishing that and help with mobile optimization
+--------------------------------------------------------------------------------------
+
+Date: April 25 2020
+Attended: Dante Barbieri, Rebecca McFadden, Kevin Pradez, Andrew Wallace
+Duration: 8 minutes
+
+Status and Updates:
+
+Dante: Did fixes and code refactoring and split up main.js
+	Plan on preparing for presentation and work on LiveMache
+
+Rebecca: Fixed bugs regarding notifications, enabled background notifications 
+	improved foreground notifications, Worked on PDF viewer
+	Plan on preparing for presentation and work on LiveMache	
+
+Kevin: Add loading icon on book page, optimized chat page on mobile
+	Plan on preparing for presentation and work on LiveMache	
+
+Andrew: Finished up speech-to-text
+	Plan on preparing for presentation and work on LiveMache

@@ -1,0 +1,11 @@
+{
+    "name": "biblioQuery",
+    "short_name": "biblioQuery",
+    "theme_color": "#dadada",
+    "background_color": "#e2e2e2",
+    "display": "browser",
+    "orientation": "landscape",
+    "scope": "/",
+    "start_url": "/",
+    "gcm_sender_id": "616201462184"
+}

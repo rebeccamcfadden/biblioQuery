@@ -1,0 +1,47 @@
+Date: April 2, 2020
+Attended: Rebecca, Dante, Andrew, Kevin
+Duration: 6 minutes
+
+Status:
+
+	Rebecca:Created results page, displayed results for author and title searches
+		Plan to Search bar on results page and ISBN queries
+
+	Dante:Worked on Firebase DB to make sure it would communicate with the website
+	      Plan to try to make code work with the updated UI, work on the release on GitHub
+
+
+	Andrew:Looked at alternative solutions, created stretch goals, studied 
+		Plan to get feedback on stretch goals so he can write it up in paragraph form
+
+	Kevin:Started project proposal doc, tried working on the results page
+		Plan to continue work on project proposal, help with some code
+
+
+
+Date: March 31, 2020
+Attended: Rebecca, Dante, Andrew, Kevin
+Duration: 7 minutes
+
+Status/Actions:
+	At this point we had already decided that our idea is to create a website for Aggies to buy and sell books
+	
+	Rebecca: Created UI sketches of website
+		 coded the main page and post book page,
+		 will look into sign in authentication with TAMU google account
+	Dante: started coding the back-end through Firebase, try to work on posting book functionality
+	Andrew: Create Results page UI sketch, plan to learn about Firebase 
+	Kevin: Started initial design doc, project backlog, sprint 1 backlog, 
+	       plan to create burndown chart
+
+Date: March 29, 2020
+Attended: Rebecca, Dante, Andrew, Kevin
+Duration: 6 minutes
+
+Status:
+	Rebecca: Started organization of LiveMache, wrote down potential ideas for project
+	Dante: Started looking into Firebase, need to install node
+	Andrew: Wrote down potential ideas for project, will think more about other potential ideas for project
+	Kevin: Plan to create initial design document, will think of potential ideas for project
+
+

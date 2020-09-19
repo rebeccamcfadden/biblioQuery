@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        ! function (n, e) {
+            var t, o, i, c = [],
+                f = {
+                    passive: !0,
+                    capture: !0
+                },
+                r = new Date,
+                a = "pointerup",
+                u = "pointercancel";
+
+            function p(n, c) {
+                t || (t = c, o = n, i = new Date, w(e), s())
+            }
+
+            function s() {
+                o >= 0 && o < i - r && (c.forEach(function (n) {
+                    n(o, t)
+                }), c = [])
+            }
+
+            function l(t) {
+                if (t.cancelable) {
+                    var o = (t.timeStamp > 1e12 ? new Date : performance.now()) - t.timeStamp;
+                    "pointerdown" == t.type ? function (t, o) {
+                        function i() {
+                            p(t, o), r()
+                        }
+
+                        function c() {
+                            r()
+                        }
+
+                        function r() {
+                            e(a, i, f), e(u, c, f)
+                        }
+                        n(a, i, f), n(u, c, f)
+                    }(o, t) : p(o, t)
+                }
+            }
+
+            function w(n) {
+                ["click", "mousedown", "keydown", "touchstart", "pointerdown"].forEach(function (e) {
+                    n(e, l, f)
+                })
+            }
+            w(n), self.perfMetrics = self.perfMetrics || {}, self.perfMetrics.onFirstInputDelay = function (n) {
+                c.push(n), s()
+            }
+        }(addEventListener, removeEventListener);
+    </script>
+    <!-- update the version number as needed -->
+    <script src="/__/firebase/7.13.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script src="/__/firebase/7.13.1/firebase-auth.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-database.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-messaging.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-storage.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.13.1/firebase-analytics.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <!-- <script defer src="/__/firebase/init.js"></script> -->
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/aa54ebdbfd.js" crossorigin="anonymous"></script>
+    <script src="scripts/initFireBase-v1.js"></script>
+    <script defer src="scripts/speechtotext-v1.js"></script>
+    <script defer src="scripts/results-v1.js"></script>
+    <script defer src="scripts/notifications-v1.js"></script>
+    <script src="scripts/main-v1.js"></script>
+
+    <link rel="manifest" href=" /manifest.json" />
+    <link rel="stylesheet" href="style/main-v1.css">
+    <link disabled id="dark-styles" rel="stylesheet" href="style/main-dark-v1.css">
+    <script>
+        if (localStorage.getItem("darkreader") == "enabled") {
+            document.getElementById("dark-styles").disabled = false;
+        } else {
+            document.getElementById("dark-styles").disabled = true;
+        }
+    </script>
+    <link rel=icon href=images/bookicon.png> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="pagetitle">Search Results - biblioQuery</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="index.html"><img src="images/bookicon.png"
+                style="border-radius: 50%; height: 40px; margin-right: 8px;">biblioQuery</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-3 inline">
+                <li class="nav-item">
+                    <a class="btn btn-light nav-link" onclick="initPost();">Post a book</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-3">
+                <li class="nav-item">
+                    <a class="btn btn-light nav-link" href="about.html">About Us</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="btn btn-light nav-link" href="help.html">How To</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="btn nav-item">
+                    <button id="signInButton" class="btn btn-light"
+                        style="padding-right: 20px; padding-left: 20px; padding-bottom: 0;" style="text-transform:none">
+                        <div class="row">
+                            <div class="span" id="user-info">
+                                <div id="buttonText" style="float: left; text-align: center;">Login with Net ID</div>
+                                <div id="imageDiv"
+                                    style="float: right; margin-top: 0; margin-left: 8px; width: 30px; height: 30px">
+                                    <img width="30px" height="30px"
+                                        style="object-fit: cover; margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);"
+                                        src="https://brandguide.tamu.edu/assets/img/logos/tam-box-logo.png"
+                                        id="logoimg" />
+                                    <img width="30px" height="30px"
+                                        style="object-fit: cover; border-radius: 50%; margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);"
+                                        id="profileimg" />
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <div class="nav-item dropdown" id="profile-dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" id="signout" onclick="signOut();">Sign out</a>
+                    </ul>
+                </div>
+            </ul>
+
+        </div>
+        <ul class="navbar-nav mr-0">
+            <li class="nav-item">
+                <!-- Rounded switch -->
+                <label class="switch checker my-auto mr-3" title="Toggle night mode" style="margin-right: 20px;">
+                    <input id="night-toggle" type="checkbox" onchange="dark_toggle();">
+                    <script>
+                        if (localStorage.getItem("darkreader") == "enabled") {
+                            document.getElementById("night-toggle").checked = true;
+                        } else {
+                            document.getElementById("night-toggle").checked = false;
+                        }
+                    </script>
+                </label>
+            </li>
+        </ul>
+        <button class="btn btn-light chatbutton notification mx-3" id="chatbutton"  hidden onclick="openChat();"> </button>
+        <label class="searcher my-auto mr-0" title="Toggle search bar" style="margin-right: 20px;">
+            <input id="search-toggle" type="checkbox" onchange="searchToggle();">
+        </label>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+    </nav>
+    <nav class="navbar navbar-light bg-light fixed-top navbar-secondary" id="searchnav" hidden>
+        <div class="row mx-auto">
+            <div class="col-md-8 mr-auto">
+                <form class="form-inline justify-content-center" action="results.html">
+                    <div class=" searchbox form-group row text-center">
+                        <select class="form-control" id="searchFrom">
+                            <option>Books</option>
+                            <option>Users</option>
+                        </select>
+                        <select class="form-control" id="searchtypes" name="search_type">
+                            <option name="search_type" id="searchType0" value="keywords">Keywords</option>
+                            <option name="search_type" id="searchType1" value="author">Author</option>
+                            <option name="search_type" id="searchType2" value="title">Title</option>
+                            <option name="search_type" id="searchType3" value="isbn">ISBN</option>
+                            <option name="search_type" id="searchType4" value="classname">Class name</option>
+                            <option name="search_type" id="searchType5" value="seller" hidden>seller</option>
+                        </select>
+                        <input class="form-control input-md" id="main-searchbar" type="text"
+                            placeholder="Search by ISBN, title, or author" name="query_string" aria-label="Search"
+                            style="width: 400px;">
+                        <button class="btn searchbutton" id="main-searchbutton" type="submit"><i
+                                class="fas fa-search"></i></button>
+                        <input name="page" value="1" hidden>
+                    </div>
+                </form>
+            </div>
+
+            <div class = "col-md-4 mr-auto">
+                <div class = "dictate_searchbar">
+                    <img id = "mic_results" onclick = "dictate_searchbar_results()" src = "images/mic.png" width = "7.5%" height = "62%" style = "margin-top: 1.7%; position: relative; right: 17.5%;">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container-fluid container-center" style="margin-top: 10px;">
+            <div class="spinner-border text-muted" id="spinner" style="display: block;"></div>
+            <div class="row">
+                <div class="col mx-auto">
+                    <h2 id="resultstitle"></h2>
+                    <small id="disclaimer">Results from <a href="https://openlibrary.org/">OpenLibrary Database</a></small>
+                </div>
+                <!--loader-->
+                <div id="loader" class="center"></div>  
+                <div class="col-sm-3 mx-auto my-2">
+                    <ul class="pagination" id="navigation">
+
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card-deck" id="carddeck" style="display: none;">
+
+            </div>
+            <ul class="pagination" id="navigation2">
+
+            </ul>
+        </div>
+    </main>
+    <footer class="page-footer    gray font-small pt-4">
+        <div class="footer-copyright text-center py-3">
+            <div class="row">
+                <div class="col mr-3">
+                    <a href="about.html">About Us</a>
+                </div>
+                <div class="col mr-3">
+                    © 2020 Copyright: <a href="https://biblioQuery.firebaseapp.com"> biblioQuery.firebaseapp.com</a>
+                </div>
+                <div class="col mr-3">
+                    <a href="mailto:biblioquery@gmail.com">Email Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

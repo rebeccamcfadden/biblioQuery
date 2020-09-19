@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head><script type="text/javascript">!function(n,e){var t,o,i,c=[],f={passive:!0,capture:!0},r=new Date,a="pointerup",u="pointercancel";function p(n,c){t||(t=c,o=n,i=new Date,w(e),s())}function s(){o>=0&&o<i-r&&(c.forEach(function(n){n(o,t)}),c=[])}function l(t){if(t.cancelable){var o=(t.timeStamp>1e12?new Date:performance.now())-t.timeStamp;"pointerdown"==t.type?function(t,o){function i(){p(t,o),r()}function c(){r()}function r(){e(a,i,f),e(u,c,f)}n(a,i,f),n(u,c,f)}(o,t):p(o,t)}}function w(n){["click","mousedown","keydown","touchstart","pointerdown"].forEach(function(e){n(e,l,f)})}w(n),self.perfMetrics=self.perfMetrics||{},self.perfMetrics.onFirstInputDelay=function(n){c.push(n),s()}}(addEventListener,removeEventListener);</script>
+    <!-- update the version number as needed-->
+    <script src="/__/firebase/7.13.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+     <script  src="/__/firebase/7.13.1/firebase-auth.js"></script>
+  <script  src="/__/firebase/7.13.1/firebase-database.js"></script>
+  <script  src="/__/firebase/7.13.1/firebase-messaging.js"></script>
+  <script  src="/__/firebase/7.13.1/firebase-storage.js"></script>
+  <script  src="/__/firebase/7.13.1/firebase-firestore.js"></script>
+  <!-- initialize the SDK after all desired features are loaded-->
+    <!-- <script defer src="/__/firebase/init.js"></script>  -->
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/aa54ebdbfd.js" crossorigin="anonymous"></script>
+  <script src="scripts/initFireBase-v1.js"></script>
+    <script defer src="scripts/speechtotext-v1.js"></script>
+    <script defer src="scripts/notifications-v1.js"></script>
+  <script src="scripts/main-v1.js"></script>
+    <!-- <script src="scripts/result-v1.js"></script> -->
+    <link rel="manifest" href=" /manifest.json" />
+  <link rel="stylesheet" href="style/main-v1.css">
+    <link disabled id="dark-styles" rel="stylesheet" href="style/main-dark-v1.css">
+    <script>
+        if (localStorage.getItem("darkreader") == "enabled") {
+            document.getElementById("dark-styles").disabled = false;
+        } else {
+            document.getElementById("dark-styles").disabled = true;
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel=icon href=images/bookicon.png>
+    <title id="pagetitle">About Us - biblioQuery</title>
+</head>
+
+ <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="index.html"><img src="images/bookicon.png"
+                style="border-radius: 50%; height: 40px; margin-right: 8px;">biblioQuery</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-3 inline">
+                <li class="nav-item">
+                    <a class="btn btn-light nav-link" onclick="initPost();">Post a book</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-3">
+                <li class="nav-item">
+                    <a class="btn btn-light nav-link" href="about.html">About Us</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="btn btn-light nav-link" href="help.html">How To</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="btn nav-item">
+                    <button id="signInButton" class="btn btn-light"
+                        style="padding-right: 20px; padding-left: 20px; padding-bottom: 0;" style="text-transform:none">
+                        <div class="row">
+                            <div class="span" id="user-info">
+                                <div id="buttonText" style="float: left; text-align: center;">Login with Net ID</div>
+                                <div id="imageDiv"
+                                    style="float: right; margin-top: 0; margin-left: 8px; width: 30px; height: 30px">
+                                    <img width="30px" height="30px"
+                                        style="object-fit: cover; margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);"
+                                        src="https://brandguide.tamu.edu/assets/img/logos/tam-box-logo.png"
+                                        id="logoimg" />
+                                    <img width="30px" height="30px"
+                                        style="object-fit: cover; border-radius: 50%; margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);"
+                                        id="profileimg" />
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <div class="nav-item dropdown" id="profile-dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" id="signout" onclick="signOut();">Sign out</a>
+                    </ul>
+                </div>
+            </ul>
+
+        </div>
+        <button class="btn btn-light chatbutton notification mx-3" id="chatbutton"  hidden onclick="openChat();"> </button>
+        <ul class="navbar-nav mr-0">
+            <li class="nav-item">
+                <!-- Rounded switch -->
+                <label class="switch checker my-auto mr-3" title="Toggle night mode" style="margin-right: 20px;">
+                    <input id="night-toggle" type="checkbox" onchange="dark_toggle();">
+                    <script>
+                        if (localStorage.getItem("darkreader") == "enabled") {
+                            document.getElementById("night-toggle").checked = true;
+                        } else {
+                            document.getElementById("night-toggle").checked = false;
+                        }
+                    </script>
+                </label>
+            </li>
+        </ul>
+        <label class="searcher my-auto mr-0" title="Toggle search bar" style="margin-right: 20px;">
+            <input id="search-toggle" type="checkbox" onchange="searchToggle();">
+        </label>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+    </nav>
+    <nav class="navbar navbar-light fixed-top navbar-secondary" id="searchnav" hidden>
+        <div class="row mx-auto">
+            <div class="col-md-8 mr-auto">
+                <form class="form-inline justify-content-center" action="results.html">
+                    <div class=" searchbox form-group row text-center">
+                        <select class="form-control" id="searchFrom">
+                            <option>Books</option>
+                            <option>Users</option>
+                        </select>
+                        <select class="form-control" id="searchtypes" name="search_type">
+                            <option name="search_type" id="searchType0" value="keywords">Keywords</option>
+                            <option name="search_type" id="searchType1" value="author">Author</option>
+                            <option name="search_type" id="searchType2" value="title">Title</option>
+                            <option name="search_type" id="searchType3" value="isbn">ISBN</option>
+                            <option name="search_type" id="searchType4" value="classname">Class name</option>
+                            <option name="search_type" id="searchType5" value="seller" hidden>seller</option>
+                        </select>
+                        <input class="form-control input-md" id="main-searchbar" type="text"
+                            placeholder="Search by ISBN, title, or author" name="query_string" aria-label="Search"
+                            style="width: 400px;">
+                        <button class="btn searchbutton" id="main-searchbutton" type="submit"><i
+                                class="fas fa-search"></i></button>
+                        <input name="page" value="1" hidden>
+                    </div>
+                </form>
+            </div>
+
+            <div class = "col-md-4 mr-auto">
+                <div class = "dictate_searchbar">
+                    <img id = "mic_about" onclick = "dictate_searchbar_about()" src = "images/mic.png" width = "7.5%" height = "62%" style = "margin-top: 1.7%; position: relative; right: 17.5%;">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container-center" >
+            <h2>About Us</h2>
+            <p class="ml-3">BiblioQuery is a web-based app for Texas A&M students to search, buy, and sell textbooks.
+                We use price searching APIs to help you find the textbooks you need at a 
+                reasonable price. We also make use of multiple book databases to provide cover images, 
+                previews, and other rich data to help you narrow your book search. In addition, we provide
+                an avenue for A&M students to post textbooks and sell them to other A&M students. In this way,
+                we can decrease book waste and use the Aggie Network to reduce textbook costs for students. 
+            </p>
+            <h2>Our Team</h2>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="about-link" href="https://www.linkedin.com/in/kevin-pradez/">
+                                <img class="about-profile" alt="Kevin Pradez"
+                                    src="https://media-exp1.licdn.com/dms/image/C5603AQGlQ3HSaj4B0g/profile-displayphoto-shrink_800_800/0?e=1593648000&v=beta&t=yvZQLMzqM7x1q-HMBdyVNSaAMnsNOt5uGH-xI8729Nk">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <h5><strong>Kevin Pradez</strong>: Project Manager</h5>
+                            <p class="ml-3">Kevin Pradez is a Computer Engineering Major '21 at Texas A&M University.
+                                As Project Manager of biblioQuery, Kevin maintained the project backlog, led SCRUM meetings,
+                                assisted each team member in overcoming roadblocks, and documented the development process.
+                                In addition, he headed the mobile redesign of the application.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="about-link" href="https://www.linkedin.com/in/dante-barbieri-3b60a6173/">
+                                <img class="about-profile" alt="Dante Barbieri"
+                                    src="https://media-exp1.licdn.com/dms/image/C4E03AQH7mjauozUT5Q/profile-displayphoto-shrink_800_800/0?e=1593648000&v=beta&t=vf9mPKGuWsoSz_qywBJmZkc_ak8sWK09v3wMhYiu_MQ">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <h5><strong>Dante Barbieri</strong>: Back-end/Database </h5>
+                            <p class="ml-3">Dante Barbieri is a Computer Science major '22 at Texas A&M University. As 
+                                back-end lead of biblioQuery, Dante worked on the Firebase/database configuration.
+                                However, he and Rebecca shared the majority of the architecture design process and 
+                                implementation work. Dante also implemented the "Night Mode" feature.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="about-link" href="https://www.linkedin.com/in/rebecca-m-601936135/">
+                                <img class="about-profile" alt="Rebecca McFadden"
+                                    src="https://lh3.googleusercontent.com/-6R614ZlBq3U/Xo_WdJg2O7I/AAAAAAAAAJs/9OjQn0K_Xb4RfRK-B-mLOQoL0KlkeSymQCEwYBhgL/w140-h139-p/MVIMG_20190728_135523%2B%25282%2529.jpg">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <h5><strong>Rebecca McFadden</strong>: Front-end/Chat </h5>
+                            <p class="ml-3">Rebecca McFadden is a Computer Science major '22 at Texas A&M Univeristy. As 
+                                front-end lead of the application, she designed the interface and the user experience of
+                                the site. As stated above, she and Dante largely collaborated on the site functionality
+                                and architecture. She is also responsible for the chat feature and the redesign of the search feature.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a class="about-link" href="https://www.linkedin.com/in/andrew-wallace-2bb3bb153/">
+                                <img class="about-profile" alt="Andrew Wallce"
+                                    src="https://media-exp1.licdn.com/dms/image/C4E03AQHjCrEjnb0CAQ/profile-displayphoto-shrink_800_800/0?e=1593648000&v=beta&t=USxOGfCtvvxFlPnvVk9m6yQV0g7GoSCT22wxlO4u_W4">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <h5><strong>Andrew Wallace</strong>: Assistive Technologies/Developer</h5>
+                            <p class="ml-3">Andrew Wallace is a Computer Science major '21 at Texas A&M University. As
+                                Assistive Technologies lead, Andrew implemented the speech-to-text functionality of the site. 
+                                In addition to this, he worked closely with Kevin on documenting the development process, redesigning
+                                the page for a mobile viewer, and assisting Dante and Rebecca in bug fixes and feature development. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="page-footer    gray font-small pt-4">
+        <div class="footer-copyright text-center py-3">
+            <div class="row">
+                <div class="col mr-3">
+                    <a href="about.html">About Us</a>
+                </div>
+                <div class="col mr-3">
+                    © 2020 Copyright: <a href="https://biblioQuery.firebaseapp.com"> biblioQuery.firebaseapp.com</a>
+                </div>
+                <div class="col mr-3">
+                    <a href="mailto:biblioquery@gmail.com">Email Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

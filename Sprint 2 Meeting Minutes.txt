@@ -1,0 +1,57 @@
+Date: April 7 2020
+Attended: Dante Barbieri, Rebecca McFadden, Kevin Pradez, Andrew Wallace
+Duration: 7 minutes
+
+Status and Updates:
+
+Dante: Built user studies survey form, cleaned up user stories and added more.
+	Plan to work on the database setup for tracking user info and display it on profile page
+
+Rebecca: Fixed bugs, started working on error page and get price API to display properly
+	Plan to fix results on bottom of user profile page for book postings
+
+Kevin: Started working on user stories and user study proposal and wrote initial thoughts down
+	Continue working on user proposal and help code with user profile
+
+Andrew: Read through code to understand all functions and interactions, started working on user profile page
+	Plan to help code for user profile
+--------------------------------------------------------------------------------------
+Date: April 9 2020
+Attended: Dante Barbieri, Rebecca McFadden, Kevin Pradez, Andrew Wallace
+Duration: 7 minutes
+
+Status and Updates:
+
+Dante: Worked on dark mode feature, merge code that displays user listings for books
+	Plan on working on profile page and keep fixing bugs
+
+Rebecca: set up communication as functions on back end side
+	Setup Firebase Cloud functions to get all user data nicely
+
+Kevin: Worked on user study proposal and researching for color blindess to implement on application
+	Learn how to change the colors on html pages for color blindness
+
+Andrew: Researched and Worked on text to speech accessibility to try and implement in application
+	plan to keep working on text to speech and research on color blindess
+
+--------------------------------------------------------------------------------------
+
+Date: April 14 2020
+Attended: Dante Barbieri, Rebecca McFadden, Kevin Pradez, Andrew Wallace
+Duration: 6 minutes
+
+Status and Updates:
+
+Dante: Talked to users who submitted their surveys and grabbed more feedback from them
+	Will start implementing new changes from surveys
+	Will start working on easier navigation around the website
+
+Rebecca: Worked on suggestions from the user studies, deleted all reviews in the database, update them to where we use userID, not display name, 
+	Fixed bug where you can now click on profile icon and be directed to user profile
+	Will plan on allowing users to edit more of their profile such as name, email, profile picture, etc.
+
+Kevin: Worked on optimizing website for mobile, researching HTML and CSS
+	Will plan on continuing to work for mobile optimization, start user study report
+
+Andrew: Worked on cleaning up index.html page where it looks good on mobile, worked on text-to-speech stuff for accessibility
+	Plan on continuing on mobile optimization and implementing text-to-speech accessibility
